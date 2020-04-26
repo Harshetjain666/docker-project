@@ -1,0 +1,30 @@
+version: '3'
+
+
+services:
+     Owncloud:
+         image: owncloud
+         ports: 
+           -8080:80
+         depends_on:
+           - MySQL
+         restart: always
+         volumes:
+           - my_owncloud_data:/var/www/html
+
+
+     MySQL:
+         image: mysql:5.7
+         volumes:
+           - mysql_data:/var/www/html
+         restart: always
+         environment:
+           MYSQL_ROOT_PASSWORD: toor
+           MYSQL_USER: harsh
+           MYSQL_PASSWORD: toor
+           MYSQL_DATABASE: project
+
+
+volumes:
+  my_owncloud_data:
+  mysql_data:
