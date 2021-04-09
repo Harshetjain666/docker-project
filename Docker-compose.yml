@@ -16,7 +16,7 @@ services:
      MySQL:
          image: mysql:5.7
          volumes:
-           - mysql_data:/var/www/html
+           - mysql_data:/var/lib/mysql
          restart: always
          environment:
            MYSQL_ROOT_PASSWORD: toor
